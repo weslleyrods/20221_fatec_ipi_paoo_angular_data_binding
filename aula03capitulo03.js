@@ -87,3 +87,35 @@
 //     fs.readFile(nomeArquivo, exibirConteudo)
 // }
 // abrirArquivo ("arquivo.txt")
+
+
+//PROMISES
+
+// function calculoDemorado(numero){
+//     let res = 0
+//     for(let i = 0; i<= numero;i++)
+//         res+=1
+//     return res
+// }
+// const resultado = calculoDemorado(10)
+// console.log(resultado)
+
+
+function calculoDemorado(numero){
+    return new Promise(function(resolve, reject){
+    let res = 0
+    for(let i = 0; i<= numero;i++)
+        res+= i
+    resolve(res)
+    })
+}
+const resultado = calculoDemorado(10)
+resultado.then((resultado)=>{ //then pode receber arrow function ou function
+    console.log("Resultado: "+resultado)
+})
+
+//outra forma
+/* const finalizar = function(resultado){
+    console.log(resultado)
+}
+resultado.then(finalizar) */
